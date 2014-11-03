@@ -15,44 +15,44 @@
       </inertial>
 
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="${pi/2} 0 ${pi/2}" />
         <geometry>
-          <mesh filename="package://hector_quadrotor_description/meshes/quadrotor/quadrotor_base.dae"/>
+          <mesh filename="package://hector_quadrotor_description/meshes/quadrotor/tiltrotor.stl"/>
         </geometry>
       </visual>
 
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="${pi/2} 0 ${pi/2}" />
         <geometry>
-          <mesh filename="package://hector_quadrotor_description/meshes/quadrotor/quadrotor_base.stl"/>
+          <mesh filename="package://hector_quadrotor_description/meshes/quadrotor/tiltrotor.stl"/>
         </geometry>
       </collision>
      </link>
 
      <!-- Left = RED -->
 
-     <xacro:sonar_sensor name="sonar_right" parent="base_link" ros_topic="sonar_right" update_rate="10" min_range="0.03" max_range="10.0" field_of_view="${3*pi/180}" ray_count="3">
-        <origin xyz="-0.06 0.0 0.05" rpy="0 0 ${180*pi/180}"/>
-      </xacro:sonar_sensor>
-
-      <xacro:sonar_sensor name="sonar_left" parent="base_link" ros_topic="sonar_left" update_rate="10" min_range="0.03" max_range="10.0" field_of_view="${3*pi/180}" ray_count="3">
-        <origin xyz="0.06 0.0 0.05" rpy="0 0 0"/>
-      </xacro:sonar_sensor>
-
-      <xacro:sonar_sensor name="sonar_backward" parent="base_link" ros_topic="sonar_backward" update_rate="10" min_range="0.03" max_range="10.0" field_of_view="${3*pi/180}" ray_count="3">
-        <origin xyz="0.0 0.06 0.05" rpy="0 0 ${90*pi/180}"/>
+     <xacro:sonar_sensor name="sonar_backward" parent="base_link" ros_topic="sonar_backward" update_rate="10" min_range="0.03" max_range="10.0" field_of_view="${3*pi/180}" ray_count="3">
+        <origin xyz="-0.315 0.0 0.035" rpy="0 0 ${180*pi/180}"/>
       </xacro:sonar_sensor>
 
       <xacro:sonar_sensor name="sonar_forward" parent="base_link" ros_topic="sonar_forward" update_rate="10" min_range="0.03" max_range="10.0" field_of_view="${3*pi/180}" ray_count="3">
-        <origin xyz="0.0 -0.06 0.05" rpy="0 0 ${-90*pi/180}"/>
+        <origin xyz="0.325 0.0 -0.05" rpy="0 0 0"/>
+      </xacro:sonar_sensor>
+
+      <xacro:sonar_sensor name="sonar_left" parent="base_link" ros_topic="sonar_left" update_rate="10" min_range="0.03" max_range="10.0" field_of_view="${3*pi/180}" ray_count="3">
+        <origin xyz="0.0 0.06 -0.03" rpy="0 0 ${90*pi/180}"/>
+      </xacro:sonar_sensor>
+
+      <xacro:sonar_sensor name="sonar_right" parent="base_link" ros_topic="sonar_right" update_rate="10" min_range="0.03" max_range="10.0" field_of_view="${3*pi/180}" ray_count="3">
+        <origin xyz="0.0 -0.06 -0.03" rpy="0 0 ${-90*pi/180}"/>
       </xacro:sonar_sensor>
 
       <xacro:sonar_sensor name="sonar_up" parent="base_link" ros_topic="sonar_up" update_rate="10" min_range="0.03" max_range="10.0" field_of_view="${3*pi/180}" ray_count="3">
-        <origin xyz="0.0 0.0 0.04" rpy="0 ${-90*pi/180} 0"/>
+        <origin xyz="-0.24 0.0 0.05" rpy="0 ${-90*pi/180} 0"/>
       </xacro:sonar_sensor>
 
       <xacro:sonar_sensor name="sonar_down" parent="base_link" ros_topic="sonar_down" update_rate="10" min_range="0.03" max_range="10.0" field_of_view="${3*pi/180}" ray_count="3">
-        <origin xyz="0.0 0.0 -0.13" rpy="0 ${90*pi/180} 0"/>
+        <origin xyz="0.0 0.0 -0.05" rpy="0 ${90*pi/180} 0"/>
       </xacro:sonar_sensor>
   </xacro:macro>
 </robot>
