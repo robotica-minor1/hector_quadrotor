@@ -9,9 +9,9 @@
   <xacro:macro name="quadrotor_base_macro">
     <link name="base_link">
      <inertial>
-        <mass value="1.477" />
+        <mass value="3.8" />
         <origin xyz="0 0 0" />
-        <inertia ixx="0.01152" ixy="0.0" ixz="0.0" iyy="0.01152" iyz="0.0" izz="0.0218" />
+        <inertia ixx="-0.0888" ixy="-0.000207" ixz="0" iyy="0.132" iyz="0.000574" izz="0.0694" />
       </inertial>
 
       <visual>
@@ -48,11 +48,11 @@
       </xacro:sonar_sensor>
 
       <xacro:sonar_sensor name="sonar_up" parent="base_link" ros_topic="sonar_up" update_rate="10" min_range="0.03" max_range="10.0" field_of_view="${3*pi/180}" ray_count="3">
-        <origin xyz="-0.24 0.0 0.05" rpy="0 ${-90*pi/180} 0"/>
+        <origin xyz="0.27 0.0 0.04" rpy="0 ${-90*pi/180} 0"/>
       </xacro:sonar_sensor>
 
       <xacro:sonar_sensor name="sonar_down" parent="base_link" ros_topic="sonar_down" update_rate="10" min_range="0.03" max_range="10.0" field_of_view="${3*pi/180}" ray_count="3">
-        <origin xyz="0.0 0.0 -0.05" rpy="0 ${90*pi/180} 0"/>
+        <origin xyz="0.29 0.0 -0.07" rpy="0 ${90*pi/180} 0"/>
       </xacro:sonar_sensor>
   </xacro:macro>
 </robot>
